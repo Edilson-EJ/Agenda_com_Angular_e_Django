@@ -1,0 +1,55 @@
+<div class="pagina_de_agendamento">
+    <h2 class="titulo">Agendamento</h2>
+
+    <form class="itens_agendamento">
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" [(ngModel)]="novoItem.nome" />
+
+        <label for="data">Data:</label>
+        <input type="date" name="data" id="data" [(ngModel)]="novoItem.data" />
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" [(ngModel)]="novoItem.email" />
+
+        <label for="celular">Celular:</label>
+        <input type="tel" name="celular" id="celular" maxlength="11" placeholder="(00) 9 00000000" [(ngModel)]="novoItem.celular" />
+
+        <label for="assunto">Assunto:</label>
+        <input type="text" name="assunto" id="assunto" maxlength="15" placeholder="No Máximo 15 caracteres" [(ngModel)]="novoItem.assunto" />
+        
+        <button type="button" (click)="adicionarItem()" id="cadastro">Adicionar</button>
+    </form>
+</div>
+
+<h2 class="titulo_compromisso ">Compromissos:</h2>
+
+<div class="principal_compromissos">
+        <ul>
+            <li class="informacoes_compromissos"> 
+                <p id="dado">Nome: Edilson </p>
+                <p id="dado">Data: 01/08/2023</p>
+                <p id="dado">E-mail: edilsonjunior@gmail.com</p>
+                <p id="dado">Celular: 88 999808045</p>
+                <p id="dado">Assunto: projeto angular</p>
+                <section class="botoes">
+                    <button (click)="concluirTarefa()" id="concluir">Concluir</button>
+                    <button  id="deletar" >Deletar</button>
+                </section>
+            </li>
+        </ul>
+
+    <ul>
+      <li *ngFor="let item of itens; let i = index" class="informacoes_compromissos">
+        <p>Nome: {{ item.nome }}</p> 
+        <p>Data: {{ item.data }}</p>
+        <p>E-mail: {{ item.email }}</p>   
+        <p>Celular:  {{ item.celular }}</p>
+        <p id="assunto" >Assunto: {{ item.assunto }}</p>
+        <button (click)="concluirTarefa()" id="concluir">Concluir</button>
+        <button (click)="excluirItem(i)" id="deletar">Excluir</button>
+        </li>
+        
+    </ul>
+</div>
+
+
