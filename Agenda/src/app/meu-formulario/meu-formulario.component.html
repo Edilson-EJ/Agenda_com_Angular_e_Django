@@ -16,8 +16,8 @@
 
         <label for="assunto">Assunto:</label>
         <input type="text" name="assunto" id="assunto" maxlength="15" placeholder="No Máximo 15 caracteres" [(ngModel)]="novoItem.assunto" />
-        
-        <button type="button" (click)="adicionarItem()" id="cadastro">Adicionar</button>
+
+        <button type="submit"  id="cadastro">Adicionar</button>
     </form>
 </div>
 
@@ -25,14 +25,14 @@
 
 <div class="principal_compromissos">
         <ul>
-            <li class="informacoes_compromissos"> 
+            <li class="informacoes_compromissos">
                 <p id="dado">Nome: Edilson </p>
                 <p id="dado">Data: 01/08/2023</p>
                 <p id="dado">E-mail: edilsonjunior@gmail.com</p>
                 <p id="dado">Celular: 88 999808045</p>
                 <p id="dado">Assunto: projeto angular</p>
                 <section class="botoes">
-                    <button (click)="concluirTarefa()" id="concluir">Concluir</button>
+                    <button  id="concluir">Concluir</button>
                     <button  id="deletar" >Deletar</button>
                 </section>
             </li>
@@ -40,15 +40,15 @@
 
     <ul>
       <li *ngFor="let item of itens; let i = index" class="informacoes_compromissos">
-        <p>Nome: {{ item.nome }}</p> 
+        <p>Nome: {{ item.nome }}</p>
         <p>Data: {{ item.data }}</p>
-        <p>E-mail: {{ item.email }}</p>   
+        <p>E-mail: {{ item.email }}</p>
         <p>Celular:  {{ item.celular }}</p>
         <p id="assunto" >Assunto: {{ item.assunto }}</p>
-        <button (click)="concluirTarefa()" id="concluir">Concluir</button>
-        <button (click)="excluirItem(i)" id="deletar">Excluir</button>
+
+      <button (click)="excluirAgendamento(i)" id="deletar">Excluir</button>
         </li>
-        
+
     </ul>
 </div>
 
