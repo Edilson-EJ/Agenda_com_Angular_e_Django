@@ -13,3 +13,25 @@ concluirTarefa(){
 const element = document.querySelector('li')
 element?.classList.add("riscaTarefa")
 }
+
+
+//////////////////////
+ListarAgendamento(){
+  return this.http.get(this.baseURL)
+}
+
+criarAgendamento(Item: any) {
+  return this.http.post(this.baseURL + 'create/', Item);
+}
+
+atualizarAgendamento(index: number, Item: any) {
+  return this.http.put(this.baseURL + `update/${index}/`,Item);
+}
+
+excluirAgendamento(index: number) {
+  return this.http.delete(this.baseURL + `delete/${index}/`);
+}
+
+//pega as informações digitadas pelo usuario salba no array
+//
+(click)="excluirAgendamento(i)"

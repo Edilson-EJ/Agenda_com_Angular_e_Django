@@ -10,6 +10,8 @@ import { FormsModule, } from '@angular/forms';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MeuFormularioComponent } from './meu-formulario/meu-formulario.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -17,14 +19,15 @@ import { MeuFormularioComponent } from './meu-formulario/meu-formulario.componen
     HeaderComponent,
     RodapeComponent,
     MeuFormularioComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

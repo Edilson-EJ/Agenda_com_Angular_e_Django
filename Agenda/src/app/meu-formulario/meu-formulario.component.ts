@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { Item } from './../item.model';
+import { CrudService } from '../crud.service';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -15,31 +17,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MeuFormularioComponent {
 
-    private baseURL = '127.0.0.1:8000/bancoAgenda/'
-
-    constructor(private http: HttpClient){}
+    constructor(private crud:CrudService){}
 
     itens: Item[] = [];
     novoItem: Item = new Item ('','', '', '', '');
 
-    ListarAgendamento(){
-      return this.http.get(this.baseURL)
+    refresgBancoAgendaList(){
+      this.crud.getAgendaBanco().subscribe(data => {
+        this.itens=data;
+      })
     }
 
-    criarAgendamento(Item: any) {
-      return this.http.post(this.baseURL + 'create/', Item);
-    }
 
-    atualizarAgendamento(index: number, Item: any) {
-      return this.http.put(this.baseURL + `update/${index}/`,Item);
-    }
 
-    excluirAgendamento(index: number) {
-      return this.http.delete(this.baseURL + `delete/${index}/`);
-    }
 
-    //pega as informações digitadas pelo usuario salba no array
-    //
 
 
 
