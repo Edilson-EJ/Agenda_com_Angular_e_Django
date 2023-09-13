@@ -17,20 +17,29 @@ import { Observable } from 'rxjs'
 })
 export class MeuFormularioComponent {
 
-    constructor(private crud:CrudService){}
+    constructor(private crud:CrudService){
+      this.ListarAgendamento();
+
+    }
 
     itens: Item[] = [];
     novoItem: Item = new Item ('','', '', '', '');
 
-    refresgBancoAgendaList(){
-      this.crud.getAgendaBanco().subscribe(data => {
-        this.itens=data;
-      })
+    ListarAgendamento = () => {
+      this.crud.getAgendaBanco().subscribe(
+        data =>{
+          this.itens =data;
+        }
+      )
     }
 
+    CreateAgendamento = () => {
+      this.crud.addAgendaBanco(1).subscribe(
+        data =>{
 
-
-
+        }
+      )
+    }
 
 
 
