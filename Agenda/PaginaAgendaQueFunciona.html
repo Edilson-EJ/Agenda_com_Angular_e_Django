@@ -35,3 +35,8 @@ excluirAgendamento(index: number) {
 //pega as informações digitadas pelo usuario salba no array
 //
 (click)="excluirAgendamento(i)"
+
+itens: Item[] = [];
+novoItem: Item = new Item ('','', '', '', '');
+
+    [this.novoItem.nome_agenda,this.novoItem.data,this.novoItem.email, this.novoItem.celular, this.novoItem.assunto]

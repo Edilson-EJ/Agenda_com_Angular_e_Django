@@ -17,30 +17,54 @@ import { Observable } from 'rxjs'
 })
 export class MeuFormularioComponent {
 
-    constructor(private crud:CrudService){
+    constructor(private crud:CrudService,private http:HttpClient){
       this.ListarAgendamento();
 
     }
 
     itens: Item[] = [];
-    novoItem: Item = new Item ('','', '', '', '');
+    novoItem: Item = new Item ('','','', '', '', '',);
 
     ListarAgendamento = () => {
+
       this.crud.getAgendaBanco().subscribe(
         data =>{
           this.itens =data;
+          console.log(data)
+
         }
       )
+
     }
 
     CreateAgendamento = () => {
-      this.crud.addAgendaBanco(1).subscribe(
+      this.crud.addAgendaBanco().subscribe(
+        data => {
+          data = this.itens
+
+        }
+      )
+
+    }
+
+    EditarAgendamento = (index: number) =>{
+      this.crud.updateAgendaBanco(index).subscribe(
         data =>{
 
         }
       )
     }
 
+    DeleteAgendamento(index: number){
+      console.log(index)
+      this.crud.deleteAgendaBanco(index).subscribe(
+        data =>{
+          data = this.itens[index]
+          console.log(index)
+          //location.reload();
+        }
+      )
+    }
 
 
 }

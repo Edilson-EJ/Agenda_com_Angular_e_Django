@@ -3,7 +3,7 @@
 
     <form class="itens_agendamento">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" [(ngModel)]="novoItem.nome" />
+        <input type="text" name="nome" id="nome" [(ngModel)]="novoItem.nome_agenda" />
 
         <label for="data">Data:</label>
         <input type="date" name="data" id="data" [(ngModel)]="novoItem.data" />
@@ -17,7 +17,7 @@
         <label for="assunto">Assunto:</label>
         <input type="text" name="assunto" id="assunto" maxlength="15" placeholder="No Máximo 15 caracteres" [(ngModel)]="novoItem.assunto" />
 
-        <button type="submit"  id="cadastro">Adicionar</button>
+        <button (click)="CreateAgendamento()" type="submit"  id="cadastro">Adicionar</button>
     </form>
 </div>
 
@@ -28,13 +28,15 @@
 
     <ul>
       <li *ngFor="let item of itens; let i = index" class="informacoes_compromissos">
-        <p>Nome: {{ item.nome }}</p>
+        <p>Nome: {{ item.nome_agenda }}</p>
         <p>Data: {{ item.data }}</p>
         <p>E-mail: {{ item.email }}</p>
         <p>Celular:  {{ item.celular }}</p>
         <p id="assunto" >Assunto: {{ item.assunto }}</p>
+        <p> id: {{ item.id }}</p>
+        <button (click)="EditarAgendamento(i)" id="editar">Editar</button>
+        <button (click)="DeleteAgendamento(i)" id="deletar" >Excluir</button>
 
-      <button  id="deletar">Excluir</button>
         </li>
 
     </ul>
