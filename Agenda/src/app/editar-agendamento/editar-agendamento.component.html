@@ -1,5 +1,5 @@
 <div class="pagina_de_agendamento">
-    <h2 class="titulo">Agendamento</h2>
+    <h2 class="titulo">Editar Agendamento</h2>
 
     <form class="itens_agendamento">
         <label for="nome">Nome:</label>
@@ -17,29 +17,6 @@
         <label for="assunto">Assunto:</label>
         <input type="text" name="assunto" id="assunto" maxlength="15" placeholder="No Máximo 15 caracteres" [(ngModel)]="novoItem.assunto" />
 
-        <button (click)="createAgendamento()" type="submit"  id="cadastro">Adicionar</button>
+        <button  type="submit"  id="cadastro">Atualizar</button>
     </form>
 </div>
-
-<h2 class="titulo_compromisso ">Compromissos:</h2>
-
-<div class="principal_compromissos">
-
-
-    <ul>
-      <li *ngFor="let item of itens; let i = index " class="informacoes_compromissos">
-        <p>Nome: {{ item.nome_agenda }}</p>
-        <p>Data: {{ item.data }}</p>
-        <p>E-mail: {{ item.email }}</p>
-        <p>Celular:  {{ item.celular }}</p>
-        <p id="assunto" >Assunto: {{ item.assunto }}</p>
-        <p id="id"> id: {{ item.id }}</p>
-        <button routerLink="/editar" id="editar">Editar</button>
-        <button (click)="deleteAgendamento(i)" id="deletar" >Excluir</button>
-
-        </li>
-
-    </ul>
-</div>
-
-

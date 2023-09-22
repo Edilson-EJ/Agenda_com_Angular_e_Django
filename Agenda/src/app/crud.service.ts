@@ -16,17 +16,17 @@ export class CrudService {
     return this.http.get<any[]>(this.APIUrl + '/bancoAgenda/');
   }
 
-  addAgendaBanco(){
-    return this.http.post(this.APIUrl + '/bancoAgenda/create/');
+  addAgendaBanco(data: any){
+    return this.http.post(this.APIUrl + '/bancoAgenda/create/', data);
   }
 
 
-  updateAgendaBanco(index: number){
+  updateAgendaBanco(index: any){
     return this.http.put(this.APIUrl + '/bancoAgenda/update/',index);
   }
 
-  deleteAgendaBanco(index: number){
-    return this.http.delete(this.APIUrl + '/bancoAgenda/delete/' + index);
+  deleteAgendaBanco(index: any){
+    return this.http.delete(this.APIUrl + '/bancoAgenda/delete/'+ index);
   }
 
 }

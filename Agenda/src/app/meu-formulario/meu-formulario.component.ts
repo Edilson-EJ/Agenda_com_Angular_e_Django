@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { Item } from './../item.model';
 import { CrudService } from '../crud.service';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs'
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +16,25 @@ import { Observable } from 'rxjs'
   templateUrl: './meu-formulario.component.html',
   styleUrls: ['./meu-formulario.component.css']
 })
-export class MeuFormularioComponent {
+export class MeuFormularioComponent{
 
     constructor(private crud:CrudService,private http:HttpClient){
-      this.ListarAgendamento();
+      this.listarAgendamento();
+
+    }
+
+    ngOnInit(): void{
+      this.listarAgendamento();
 
     }
 
     itens: Item[] = [];
     novoItem: Item = new Item ('','','', '', '', '',);
 
-    ListarAgendamento = () => {
+
+
+
+    listarAgendamento = () => {
 
       this.crud.getAgendaBanco().subscribe(
         data =>{
@@ -37,34 +46,45 @@ export class MeuFormularioComponent {
 
     }
 
-    CreateAgendamento = () => {
-      this.crud.addAgendaBanco().subscribe(
+    createAgendamento = () => {
+      window.location.reload()
+      this.crud.addAgendaBanco(this.novoItem).subscribe(
         data => {
-          data = this.itens
+          data = this.novoItem
 
         }
       )
 
     }
 
-    EditarAgendamento = (index: number) =>{
-      this.crud.updateAgendaBanco(index).subscribe(
+    editarAgendamento = (index: number) =>{
+
+      let id = this.itens[index].id
+
+      console.log("update: " + id)
+
+      this.crud.updateAgendaBanco(id).subscribe(
         data =>{
 
         }
       )
     }
 
-    DeleteAgendamento(index: number){
-      console.log(index)
-      this.crud.deleteAgendaBanco(index).subscribe(
+    deleteAgendamento(index: any){
+
+      console.log("inde e: " + index)
+
+      let id = this.itens[index].id
+
+      console.log("id e: " + id)
+      window.location.reload()
+      this.crud.deleteAgendaBanco(id).subscribe(
         data =>{
-          data = this.itens[index]
-          console.log(index)
-          //location.reload();
+
         }
       )
     }
+
 
 
 }
