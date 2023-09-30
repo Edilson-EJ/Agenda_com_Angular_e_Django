@@ -9,7 +9,7 @@ import { Item } from '../item.model';
 export class EditarAgendamentoComponent {
 
   itens: Item[] = [];
-  novoItem: Item = new Item ('','','', '', '', '',);
+  atualizarItem: Item = new Item ('','','', '', '', '',);
 
 
 

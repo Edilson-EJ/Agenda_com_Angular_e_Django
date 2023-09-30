@@ -4,7 +4,8 @@ import { CrudService } from '../crud.service';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs'
+import { Observable } from 'rxjs';
+
 
 
 @Injectable({
@@ -31,7 +32,30 @@ export class MeuFormularioComponent{
     itens: Item[] = [];
     novoItem: Item = new Item ('','','', '', '', '',);
 
+    itensAtualizar: Item[] = [];
+    atualizarItem: Item = new Item ('','','', '', '', '',);
 
+    atualizarAgendamento: boolean = false
+
+    idAgendamento: string = ''
+
+    onAtualizarAgendamento(index: number){
+
+      this.atualizarAgendamento = !this.atualizarAgendamento
+
+      let id = this.itens[index].id
+
+      this.idAgendamento = id
+
+      console.log("item a atualizar: " + this.idAgendamento)
+
+    }
+
+    ofAtualizarAgendamento(){
+      this.atualizarAgendamento = false
+      let id = this.idAgendamento
+      this.editarAgendamento(id)
+    }
 
 
     listarAgendamento = () => {
@@ -57,15 +81,15 @@ export class MeuFormularioComponent{
 
     }
 
-    editarAgendamento = (index: number) =>{
+    editarAgendamento = (index: any) =>{
 
-      let id = this.itens[index].id
 
-      console.log("update: " + id)
+      console.log("update: " + index)
 
-      this.crud.updateAgendaBanco(id).subscribe(
+      this.crud.updateAgendaBanco(index).subscribe(
         data =>{
 
+          data = this.atualizarItem
         }
       )
     }

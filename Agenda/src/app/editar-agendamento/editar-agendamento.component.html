@@ -3,19 +3,19 @@
 
     <form class="itens_agendamento">
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" [(ngModel)]="novoItem.nome_agenda" />
+        <input type="text" name="nome" id="nome" [(ngModel)]="atualizarItem.nome_agenda" />
 
         <label for="data">Data:</label>
-        <input type="date" name="data" id="data" [(ngModel)]="novoItem.data" />
+        <input type="date" name="data" id="data" [(ngModel)]="atualizarItem.data" />
 
         <label for="email">Email:</label>
-        <input type="email" name="email" id="email" [(ngModel)]="novoItem.email" />
+        <input type="email" name="email" id="email" [(ngModel)]="atualizarItem.email" />
 
         <label for="celular">Celular:</label>
-        <input type="tel" name="celular" id="celular" maxlength="11" placeholder="(00) 9 00000000" [(ngModel)]="novoItem.celular" />
+        <input type="tel" name="celular" id="celular" maxlength="11" placeholder="(00) 9 00000000" [(ngModel)]="atualizarItem.celular" />
 
         <label for="assunto">Assunto:</label>
-        <input type="text" name="assunto" id="assunto" maxlength="15" placeholder="No Máximo 15 caracteres" [(ngModel)]="novoItem.assunto" />
+        <input type="text" name="assunto" id="assunto" maxlength="15" placeholder="No Máximo 15 caracteres" [(ngModel)]="atualizarItem.assunto" />
 
         <button  type="submit"  id="cadastro">Atualizar</button>
     </form>
