@@ -86,7 +86,7 @@ export class MeuFormularioComponent{
 
       console.log("update: " + index)
 
-      this.crud.updateAgendaBanco(index).subscribe(
+      this.crud.updateAgendaBanco(index,this.atualizarItem).subscribe(
         data =>{
 
           data = this.atualizarItem
