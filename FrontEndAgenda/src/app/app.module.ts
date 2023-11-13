@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CrudService } from './crud.service';
 import { EditarAgendamentoComponent } from './editar-agendamento/editar-agendamento.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { EditarAgendamentoComponent } from './editar-agendamento/editar-agendame
     RodapeComponent,
     MeuFormularioComponent,
     EditarAgendamentoComponent,
+    LoginComponent,
 
   ],
   imports: [
