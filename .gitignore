@@ -1,0 +1,30 @@
+# Python
+*.py[cod]
+__pycache__/
+*.so
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+*.sqlite3-journal
+.env
+env/
+venv/
+.venv/
+/staticfiles/
+/media/
+
+# macOS
+.DS_Store
+
+# JetBrains IDEs (PyCharm, IntelliJ IDEA)
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/

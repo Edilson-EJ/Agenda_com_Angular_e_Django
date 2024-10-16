@@ -22,7 +22,7 @@ export class CrudService {
 
 
   updateAgendaBanco(index: any, dados: any){
-    return this.http.put(this.APIUrl + '/agendamento/update/' + index);
+    return this.http.put(this.APIUrl + '/agendamento/update/' + index,dados);
   }
 
   deleteAgendaBanco(index: any){
