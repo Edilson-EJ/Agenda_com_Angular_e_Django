@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.so
+
+# Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+*.sqlite3-journal
+.env
+env/
+venv/
+.venv/
+/staticfiles/
+/media/
+
+# macOS
+.DS_Store
+
+# JetBrains IDEs (PyCharm, IntelliJ IDEA)
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+
+# Excluir diretórios do cálculo de linguagens no GitHub
+/static/* linguist-vendored
+/node_modules/* linguist-vendored
